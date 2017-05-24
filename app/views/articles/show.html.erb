@@ -1,0 +1,24 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<% if user_signed_in? %>
+  <% if @article.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_article_path(@article) %>
+    <%= link_to 'Delete', article_path(@article),  method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
+    <%= link_to 'Back', articles_path %>
+  <% end %>
+<% end %>
+
+<h3>Comments:</h3>
+  <%= render @article.comments %>
+  <% if user_signed_in? %>
+    <%= render 'comments/form' %>
+  <% end %>

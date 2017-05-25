@@ -13,9 +13,9 @@
   <% if @article.user_id == current_user.id %>
     <%= link_to 'Edit', edit_article_path(@article) %>
     <%= link_to 'Delete', article_path(@article),  method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
-    <%= link_to 'Back', articles_path %>
   <% end %>
 <% end %>
+<%= link_to 'Back', articles_path %>
 
 <h3>Comments:</h3>
   <%= render @article.comments %>

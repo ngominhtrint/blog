@@ -1,13 +1,13 @@
-# Pre-work - *Name of App Here*
+# Pre-work - *Altium*
 
 > HINT: Please
 > - include this README.md in your project and fill out the information.
 > - remove the `README.rdoc` file that Rails generates.
 > - remove all the HINT blocks in this file.
 
-**Name of your app** is a Ruby on Rails blog application.
+**Altium** is a Ruby on Rails blog application.
 
-Submitted by: **Your Name Here**
+Submitted by: **Tri Ngo Minh**
 
 Time spent: **X** hours spent in total
 
@@ -48,6 +48,7 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] List anything else that you can get done to improve the app functionality!
+- [x] Implement emoji
 
 ## Video Walkthrough
 

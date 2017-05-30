@@ -22,7 +22,8 @@
 
   # GET /articles/new
   def new
-    @article = current_user.articles.build
+    @article = Article.new
+    @tag = Tag.new
   end
 
   # GET /articles/1/edit
@@ -32,8 +33,8 @@
   # POST /articles
   # POST /articles.json
   def create
-    @article = current_user.articles.build(article_params)
-
+    @article = current_user.articles.create(article_params)
+    tag = @article.tags.create(tag_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -78,5 +79,9 @@
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :body)
+    end
+
+    def tag_params
+      params.require(:tag).permit(:content)
     end
 end

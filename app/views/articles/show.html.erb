@@ -1,24 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>The Rise of Soccer in The US</title>
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100" rel="stylesheet">
+      <%= stylesheet_link_tag "article_show.css" %>
+  </head>
+  <body>
+    <h1>
+      <%= @article.title %>
+    </h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+    <h3>
+      <%= @article.body %>
+    </h3>
 
-<p>
-  <strong>Body:</strong>
-  <%= @article.body %>
-</p>
+    <div>
+      <% if user_signed_in? %>
+        <% if @article.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_article_path(@article) %>
+          <%= link_to 'Delete', article_path(@article),  method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
+        <% end %>
+      <% end %>
+      <%= link_to 'Back', articles_path %>
+    </div>
 
-<% if user_signed_in? %>
-  <% if @article.user_id == current_user.id %>
-    <%= link_to 'Edit', edit_article_path(@article) %>
-    <%= link_to 'Delete', article_path(@article),  method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
-  <% end %>
-<% end %>
-<%= link_to 'Back', articles_path %>
+    <br/>
+    <br/>
 
-<h3>Comments:</h3>
-  <%= render @article.comments %>
-  <% if user_signed_in? %>
-    <%= render 'comments/form' %>
-  <% end %>
+    <h3>Comments:</h3>
+      <%= render @article.comments %>
+      <% if user_signed_in? %>
+        <%= render 'comments/form' %>
+      <% end %>
+  </body>
+</html>

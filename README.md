@@ -38,17 +38,17 @@ The following is a list of **required** features of the application you'll build
 
 The following **optional** features are implemented:
 
-* [ ] User can see who created the Article.
+* [x] User can see who created the Article.
 * [ ] User can see how many views an Article has.
-* [ ] User can see who created the Comment.
+* [x] User can see who created the Comment.
 * [ ] User can add "tags" to a Article, and filter Articles by tag.
 
 > HINT: if you are unsure how to implement the Search feature, you can Google how to implement a simple search form. For example, one of the sites you will find is [this](http://www.jorgecoca.com/buils-search-form-ruby-rails/)
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
 - [x] Implement emoji
+- [x] Apply css on article detail
 
 ## Video Walkthrough
 
@@ -68,7 +68,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

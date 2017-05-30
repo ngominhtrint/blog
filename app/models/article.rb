@@ -4,7 +4,7 @@ class Article < ApplicationRecord
   has_many :tags, dependent: :destroy
 
   def self.search(search)
-    where("title || body ILIKE ?", "%#{search}%")
+    a = includes(:tags).from("tags, articles").all.where("articles.body ILIKE ? OR articles.title ILIKE ? OR tags.content ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
   def increment

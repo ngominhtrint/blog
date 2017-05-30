@@ -15,21 +15,21 @@
     </thead>
 
     <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <td><%= article.title %></td>
-          <td><%= time_ago_in_words(article.created_at) %></td>
-          <td><%=  @markdown.render(content_with_emoji(article.body)).html_safe %></td>
-          <td>
-          <%  article.tags.each do |tag| %>
-            <td><%= tag.content %></td>
-          <% end %>
-          </td>
-          <td><%=  article.user.email %></td>
-          <td><%=  article.views %></td>
-          <td><%= link_to 'Show', article %></td>
-        </tr>
-      <% end %>
+        <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+            <td><%= time_ago_in_words(article.created_at) %></td>
+            <td><%=  @markdown.render(content_with_emoji(article.body)).html_safe %></td>
+            <td>
+            <%  article.tags.each do |tag| %>
+              <%= tag.content %>
+            <% end %>
+            </td>
+            <td><%=  article.user.email %></td>
+            <td><%=  article.views %></td>
+            <td><%= link_to 'Show', article %></td>
+          </tr>
+        <% end %>
     </tbody>
   </table>
 

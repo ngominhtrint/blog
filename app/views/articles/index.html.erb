@@ -8,6 +8,7 @@
         <th>Create At</th>
         <th>Body</th>
         <th>Author</th>
+        <th>Views</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -19,6 +20,7 @@
           <td><%= time_ago_in_words(article.created_at) %></td>
           <td><%=  @markdown.render(content_with_emoji(article.body)).html_safe %></td>
           <td><%=  article.user.email %></td>
+          <td><%=  article.views %></td>
           <td><%= link_to 'Show', article %></td>
         </tr>
       <% end %>

@@ -5,4 +5,10 @@ class Article < ApplicationRecord
   def self.search(search)
     where("title || body ILIKE ?", "%#{search}%")
   end
+
+  def increment
+    self.views ||= 0
+    self.views += 1
+    self.save
+  end
 end

@@ -17,6 +17,7 @@
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article.increment
   end
 
   # GET /articles/new

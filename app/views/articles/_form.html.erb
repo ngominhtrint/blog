@@ -1,3 +1,18 @@
+<!-- Template styles -->
+<style rel="stylesheet">
+    /* TEMPLATE STYLES */
+
+    main {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+    }
+
+    div.emoji-picker-container {
+        width: 100%;
+    }
+
+</style>
+
 <%= form_for(@article) do |f| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
@@ -11,31 +26,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <div class="emoji-picker-container">
-      <%= f.text_field :title, class: 'form-control', data: { emojiable: true } %>
+<div class="form_horizontal">
+  <div class="form-group">
+    <%= f.label :title, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <div class="emoji-picker-container">
+        <%= f.text_field :title, class: 'form-control', data: { emojiable: true } %>
+      </div>
     </div>
   </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <p class="emoji-picker-container">
-      <%= f.text_area :body, class: 'form-control', data: { emojiable: true } %>
-    </p>
-  </div>
-
-  <%= fields_for @tag do |u| %>
-  <div class="field">
-    <%= u.label :tags %>
-    <div>
-      <%= u.text_field :content, class: 'form-control' %>
+  <div class="form-group">
+    <%= f.label :body, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <div class="emoji-picker-container">
+          <%= f.text_area :body, class: 'form-control', data: { emojiable: true } %>
+      </div>
     </div>
   </div>
 
-  <% end %>
+  <div class="form-group">
+    <%= f.label :tags, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+        <%= f.text_field :tags, class: 'form-control' %>
+    </div>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :image_url, class: 'control-label col-sm-2' %>
+    <div class="col-sm-10">
+      <%= f.text_field :image_url, class: 'form-control' %>
+    </div>
+  </div>
+
+<div class="col-sm-10">
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create article", class: "btn btn-success"%>
   </div>
+</div>
+
+</div>
 <% end %>

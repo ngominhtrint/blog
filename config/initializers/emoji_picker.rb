@@ -1,2 +1,2 @@
-Emoji.asset_host = 'https://github.com'
-Emoji.asset_path = '/ngominhtrint/blog/tree/master/public/assets/emoji'
+Emoji.asset_host = 'https://altium-blog.herokuapp.com'
+Emoji.asset_path = '/assets/emoji/'

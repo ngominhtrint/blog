@@ -25,7 +25,7 @@
                     <br>
 
                     <!--Post excerpt-->
-                    <p><%= @article.body %></p>
+                    <p><%= @markdown.render(content_with_emoji(@article.body)).html_safe %></p>
 
                     <!-- Edit, Delete, Back actions -->
                     <div>

@@ -9,7 +9,7 @@
 
 Submitted by: **Tri Ngo Minh**
 
-Time spent: **X** hours spent in total
+Time spent: **24** hours spent in total
 
 URL: **Insert your Heroku URL here**
 
@@ -22,7 +22,7 @@ The following is a list of **required** features of the application you'll build
 * [x] Users can create, edit, and delete Articles from the database using their Rails application.
 * [x] User can create a new Article, formatted using the Markdown language.
 * [x] User can see how long ago the Article was created.
-* [ ] There is one Article that introduces the App Creator with name & picture.
+* [x] There is one Article that introduces the App Creator with name & picture.
 * [x] User see a search form on the Articles page.
 * [x] When the User attempts to delete an Article there is an alert modal which asks the User to confirm deletion of that specific Article.
 * [x] User can submit a search term to find Articles with titles or body containing search terms.
@@ -41,14 +41,15 @@ The following **optional** features are implemented:
 * [x] User can see who created the Article.
 * [x] User can see how many views an Article has.
 * [x] User can see who created the Comment.
-* [ ] User can add "tags" to a Article, and filter Articles by tag.
+* [x] User can add "tags" to a Article, and filter Articles by tag.
 
 > HINT: if you are unsure how to implement the Search feature, you can Google how to implement a simple search form. For example, one of the sites you will find is [this](http://www.jorgecoca.com/buils-search-form-ruby-rails/)
 
 The following **additional** features are implemented:
 
-- [x] Implement emoji
-- [x] Apply css on article detail
+- [x] Implement emoji in article body and comment text field.
+- [x] Divide index page to 2 columns.
+- [x] Polish by applying css and bootstrap itmes.
 
 ## Video Walkthrough
 
@@ -58,7 +59,7 @@ Here's a walkthrough of implemented user stories:
 > `![Video Walkthrough](walkthrough.gif)`
 >
 
-![Video Walkthrough](/path/to/your/gif/file)
+![Video Walkthrough](walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

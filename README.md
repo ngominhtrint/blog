@@ -11,7 +11,7 @@ Submitted by: **Tri Ngo Minh**
 
 Time spent: **24** hours spent in total
 
-URL: **Insert your Heroku URL here**
+URL: **https://altium-blog.herokuapp.com/**
 
 ## User Stories
 

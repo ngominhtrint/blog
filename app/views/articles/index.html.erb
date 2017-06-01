@@ -1,37 +1,185 @@
-<div>
-  <h1>Articles</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Create At</th>
-        <th>Body</th>
-        <th>Tags</th>
-        <th>Author</th>
-        <th>Views</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+<head>
 
-    <tbody>
-        <% @articles.each do |article| %>
-          <tr>
-            <td><%= article.title %></td>
-            <td><%= time_ago_in_words(article.created_at) %></td>
-            <td><%=  @markdown.render(content_with_emoji(article.body)).html_safe %></td>
-            <td>
-            <%  article.tags.each do |tag| %>
-              <%= tag.content %>
-            <% end %>
-            </td>
-            <td><%=  article.user.email %></td>
-            <td><%=  article.views %></td>
-            <td><%= link_to 'Show', article %></td>
-          </tr>
-        <% end %>
-    </tbody>
-  </table>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <br>
-</div>
+    <title>Material Design Bootstrap</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Template styles -->
+    <style rel="stylesheet">
+        /* TEMPLATE STYLES */
+
+        main {
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .widget-wrapper {
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+
+        .navbar {
+            background-color: #FFFF;
+        }
+
+        footer.page-footer {
+            background-color: #53463d;
+            margin-top: 2rem;
+        }
+
+        div.block_container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <header>
+
+    </header>
+
+    <main>
+
+        <!--Main layout-->
+        <div class="container">
+            <div class="row">
+
+                <!--Main column-->
+                <div class="col-lg-6">
+
+                  <% @articles.each_with_index do |article, index| %>
+
+                    <% if index % 2 == 0 %>
+                    <!--Post-->
+                    <div class="post-wrapper wow fadeIn" data-wow-delay="0.2s">
+                        <!--Post data-->
+                        <h1 class="h1-responsive"> <%= article.title %></h1>
+                        <h5>Written by <a href=""><%= article.user.email %></a>, <%= time_ago_in_words(article.created_at) %></h5>
+
+                        <br>
+
+                        <!--Featured image -->
+                        <div class="view overlay hm-white-light z-depth-1-half">
+                            <img src="<%= article.image_url %>" class="img-fluid" alt="">
+                            <div class="mask">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="block_container">
+                          <div class="tags"><h5>Tags: <%= article.tags.gsub(' ', ', ') %></h5></div>
+                          <div class="viewers"><h5><%= article.views %> viewers</h5></div>
+                        </div>
+
+
+                        <!--Post excerpt-->
+                        <p><%= @markdown.render(content_with_emoji(article.body)).html_safe %></p>
+
+                        <!--"Read more" button-->
+                        <%= link_to 'Read more', article, class: 'btn btn-info' %>
+                    </div>
+                    <hr>
+                    <!--/.Post-->
+                    <%end%>
+                    <%end%>
+                </div>
+
+                <!--Second column-->
+                <div class="col-lg-6">
+
+                  <% @articles.each_with_index do |article, index| %>
+                  <% if index % 2 == 1 %>
+                    <!--Post-->
+                    <div class="post-wrapper wow fadeIn" data-wow-delay="0.2s">
+                        <!--Post data-->
+                        <h1 class="h1-responsive"> <%= article.title %></h1>
+                        <h5>Written by <a href=""><%= article.user.email %></a>, <%= time_ago_in_words(article.created_at) %></h5>
+
+                        <br>
+
+                        <!--Featured image -->
+                        <div class="view overlay hm-white-light z-depth-1-half">
+                            <img src="<%= article.image_url %>" class="img-fluid" alt="">
+                            <div class="mask">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="block_container">
+                          <div class="tags"><h5>Tags: <%= article.tags.gsub(' ', ', ') %></h5></div>
+                          <div class="viewers"><h5><%= article.views %> viewers</h5></div>
+                        </div>
+
+
+                        <!--Post excerpt-->
+                        <p><%= @markdown.render(content_with_emoji(article.body)).html_safe %></p>
+
+                        <!--"Read more" button-->
+                        <%= link_to 'Read more', article, class: 'btn btn-info' %>
+                    </div>
+                    <hr>
+                    <!--/.Post-->
+                  <% end %>
+                  <% end %>
+                </div>
+            </div>
+        </div>
+        <!--/.Main layout-->
+
+    </main>
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only">
+
+        <!--Footer Links-->
+        <div class="container-fluid">
+
+        </div>
+  </footer>
+    <!--/.Footer-->
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+
+    <script>
+    new WOW().init();
+    </script>
+
+</body>
+
+</html>

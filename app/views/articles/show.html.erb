@@ -1,36 +1,63 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <title>The Rise of Soccer in The US</title>
-      <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto:100" rel="stylesheet">
-      <%= stylesheet_link_tag "article_show.css" %>
-  </head>
-  <body>
-    <h1>
-      <%= @article.title %>
-    </h1>
+<main>
 
-    <h3>
-      <%= @article.body %>
-    </h3>
+    <!--Main layout-->
+    <div class="container">
+        <div class="row">
 
-    <div>
-      <% if user_signed_in? %>
-        <% if @article.user_id == current_user.id %>
-          <%= link_to 'Edit', edit_article_path(@article) %>
-          <%= link_to 'Delete', article_path(@article),  method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
-        <% end %>
-      <% end %>
-      <%= link_to 'Back', articles_path %>
+            <!--Main column-->
+            <div>
+
+                <!--Post-->
+                <div class="post-wrapper wow fadeIn" data-wow-delay="0.2s">
+                    <!--Post data-->
+                    <h1 class="h1-responsive"> <%= @article.title %></h1>
+                    <h5>Written by <a href=""><%= @article.user.email %></a>, <%= time_ago_in_words(@article.created_at) %></h5>
+
+                    <br>
+
+                    <!--Featured image -->
+                    <div class="view overlay hm-white-light z-depth-1-half">
+                        <img src="<%= @article.image_url %>" class="img-fluid " alt="">
+                        <div class="mask">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <!--Post excerpt-->
+                    <p><%= @article.body %></p>
+
+                    <!-- Edit, Delete, Back actions -->
+                    <div>
+                      <% if user_signed_in? %>
+                        <% if @article.user_id == current_user.id %>
+                          <%= link_to 'Edit', edit_article_path(@article), class: "btn btn-success" %>
+                          <%= link_to 'Delete', article_path(@article), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete Article #{@article.title}?" } %>
+                        <% end %>
+                      <% end %>
+                      <%= link_to 'Back', articles_path, class: "btn btn-primary" %>
+                    </div>
+
+                    </br>
+                    </br>
+                    <hr>
+
+                    <!-- Comment -->
+                    <div class="form-group">
+                      <% if user_signed_in? %>
+                        <%= render 'comments/form' %>
+                      <% end %>
+                    </div>
+
+                    </br>
+                      <%= render @article.comments %>
+                    </br>
+                </div>
+                <!--/.Post-->
+
+            </div>
+        </div>
     </div>
+    <!--/.Main layout-->
 
-    <br/>
-    <br/>
-
-    <h3>Comments:</h3>
-      <%= render @article.comments %>
-      <% if user_signed_in? %>
-        <%= render 'comments/form' %>
-      <% end %>
-  </body>
-</html>
+</main>

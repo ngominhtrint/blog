@@ -1,3 +1,11 @@
+<style>
+
+  div.search-text-field {
+    margin-right: 16px;
+  }
+
+</style>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,8 +50,12 @@
 
         <form class="form-inline my-2 my-lg-0">
           <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Articles"  %>
-          <%= submit_tag "Search"%>
+          <div class="search-text-field">
+            <%= text_field_tag :search, params[:search], placeholder: "Search Articles", class: 'form-control' %>
+          </div>
+          <div>
+            <%= submit_tag "Search", class: "btn btn-success" %>
+          </div>
           <% end %>
         </form>
       </div>

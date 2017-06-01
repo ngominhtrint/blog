@@ -4,8 +4,7 @@
 Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
-
- Rails.application.config.assets.paths << 'https://raw.githubusercontent.com/ID25/rails_emoji_picker/master/lib/generators/rails_emoji_picker/emoji/'
+# Rails.application.config.assets.paths << Emoji.images_path
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

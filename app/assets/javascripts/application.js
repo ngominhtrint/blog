@@ -9,7 +9,6 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//= require tether
 //= require jquery
 //= require bootstrap-sprockets
 //= require rails_emoji_picker

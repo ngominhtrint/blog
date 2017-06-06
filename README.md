@@ -47,7 +47,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Implement emoji in article body and comment text field.
+- [x] Implement emoji in article body and comment text field. Unfortunately, it works well until I deploy it to heroku. I have no idea on that.
 - [x] Divide index page to 2 columns.
 - [x] Polish by applying css and bootstrap itmes.
 

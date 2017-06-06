@@ -17,11 +17,6 @@ class CommentsController < ApplicationController
   def edit
   end
 
-  def show
-    @comment.destroy
-    redirect_to article_path(@article)
-  end
-
   def update
     if @comment.update(comment_params)
       redirect_to article_path(@article)
